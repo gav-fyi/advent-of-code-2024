@@ -1,2 +1,3 @@
-# advent-of-code-2024
- Advent of Code - 2024
+# Advent of Code - 2024
+
+Attempting the 2024 AoC whilst learning Rust.
