@@ -11,13 +11,13 @@ fn part_1() {
 
     match read_lines_from_file("data_1.txt") {
         Ok(lines) => {
-            match split_lines_into_vectors(lines) {
+            match split_lines_into_vectors(&lines) {
                 Ok((mut vec_a, mut vec_b)) => {
                     sort_vectors(&mut vec_a, &mut vec_b);
                     differences = vec_a
                         .iter()
                         .zip(vec_b.iter())
-                        .map(|(&a, &b)| calculate_diff(a, b))
+                        .map(|(&a, &b)| calculate_diff(&a, &b))
                         .collect();
 
                 }
@@ -27,7 +27,7 @@ fn part_1() {
         Err(e) => eprintln!("Error reading file: {}", e),
     }
 
-    println!("Answer 1: {:?}", sum_of_vector(differences));
+    println!("Answer 1: {:?}", sum_of_vector(&differences));
 
 }
 
@@ -37,7 +37,7 @@ fn part_2() {
 
     match read_lines_from_file("data_2.txt") {
         Ok(lines) => {
-            match split_lines_into_vectors(lines) {
+            match split_lines_into_vectors(&lines) {
                 Ok((vec_a, vec_b)) => {
                     for &a in &vec_a {
                         let count = vec_b.iter().filter(|&&b| b == a).count() as i32;
@@ -50,7 +50,7 @@ fn part_2() {
         Err(e) => eprintln!("Error reading file: {}", e),
     }
 
-    println!("Answer 2: {:?}", sum_of_vector(scores));
+    println!("Answer 2: {:?}", sum_of_vector(&scores));
 }
 
 fn main() {

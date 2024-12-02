@@ -17,7 +17,7 @@ pub fn split_ints(input: &str) -> Result<[i32; 2], &'static str> {
     Ok([first, second])
 }
 
-pub fn split_lines_into_vectors(lines: Vec<String>) -> Result<(Vec<i32>, Vec<i32>), &'static str> {
+pub fn split_lines_into_vectors(lines: &Vec<String>) -> Result<(Vec<i32>, Vec<i32>), &'static str> {
     let mut vec_a = Vec::new();
     let mut vec_b = Vec::new();
 
@@ -35,14 +35,10 @@ pub fn sort_vectors(vec_a: &mut Vec<i32>, vec_b: &mut Vec<i32>) {
     vec_b.sort();
 }
 
-pub fn calculate_diff(a: i32, b: i32) -> i32 {
-    if a > b {
-        a - b
-    } else {
-        b - a
-    }
+pub fn calculate_diff(a: &i32, b: &i32) -> i32 {
+    (a-b).abs()
 }
 
-pub fn sum_of_vector(numbers: Vec<i32>) -> i32 {
+pub fn sum_of_vector(numbers: &Vec<i32>) -> i32 {
     numbers.iter().sum()
 }
