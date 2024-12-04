@@ -97,7 +97,7 @@ fn part_2() {
         Err(e) => eprintln!("Error reading file: {}", e),
     }
 
-    println!("Answer 1: {}", safe_count);
+    println!("Answer 2: {}", safe_count);
 }
 
 fn main() {

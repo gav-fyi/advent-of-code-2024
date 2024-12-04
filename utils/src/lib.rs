@@ -1,10 +1,18 @@
 use std::fs::File;
-use std::io::{self, BufRead, BufReader};
+use std::io::{self, BufRead, BufReader, Read};
 
 pub fn read_lines_from_file(file_path: &str) -> Result<Vec<String>, io::Error> {
     let file: File = File::open(file_path)?;
     let reader: BufReader<File> = BufReader::new(file);
     reader.lines().collect()
+}
+
+
+pub fn read_string_from_file(file_path: &str) -> Result<String, io::Error> {
+    let mut file = File::open(file_path)?;
+    let mut content = String::new();
+    file.read_to_string(&mut content)?;
+    Ok(content)
 }
 
 pub fn split_ints(input: &str) -> Result<[i32; 2], &'static str> {
